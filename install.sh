@@ -113,7 +113,7 @@ function compile_vim_on_centos()
 # 安装mac平台必要软件
 function install_prepare_software_on_mac()
 {
-    brew install vim gcc cmake ctags-exuberant curl ack
+    brew install gcc cmake ctags-exuberant curl ack
 }
 
 # 安装centos发行版必要软件
@@ -154,20 +154,20 @@ function install_prepare_software_on_archlinux()
 function copy_files()
 {
     rm -rf ~/.vimrc
-    ln -s ${PWD}/.vimrc ~
+    cp ${PWD}/.vimrc ~/.vimrc
 
     rm -rf ~/.vimrc.local
-    cp ${PWD}/.vimrc.local ~
+    cp ${PWD}/.vimrc.local ~/
 
     rm -rf ~/.ycm_extra_conf.py
-    ln -s ${PWD}/.ycm_extra_conf.py ~
+    cp ${PWD}/.ycm_extra_conf.py ~/
 
     mkdir ~/.vim
     rm -rf ~/.vim/colors
-    ln -s ${PWD}/colors ~/.vim
+    cp -r ${PWD}/colors ~/.vim
 
     rm -rf ~/.vim/ftplugin
-    ln -s ${PWD}/ftplugin ~/.vim
+    cp -r ${PWD}/ftplugin ~/.vim
 }
 
 # 安装mac平台字体
@@ -271,7 +271,7 @@ function begin_install_vimplus()
     install_fonts_on_linux
     download_vim_plug
     install_vim_plugin
-    compile_ycm_on_linux
+    # compile_ycm_on_linux
     print_logo
 }
 
