@@ -91,7 +91,7 @@ function compile_vim_on_centos()
         perl perl-devel perl-ExtUtils-ParseXS \
         perl-ExtUtils-XSpp perl-ExtUtils-CBuilder \
         perl-ExtUtils-Embed libX11-devel ncurses-devel
-    
+
     git clone https://github.com/vim/vim.git ~/vim
     cd ~/vim
     ./configure --with-features=huge \
@@ -278,7 +278,7 @@ function begin_install_vimplus()
 # 在ubuntu发行版安装vimplus
 function install_vimplus_on_ubuntu()
 {
-    install_prepare_software_on_ubuntu
+    # install_prepare_software_on_ubuntu
     begin_install_vimplus
 }
 
@@ -319,7 +319,7 @@ function main()
     type=`get_platform_type`
     echo "Platform type: "${type}
 
-    if [ ${type} == "Darwin" ]; then 
+    if [ ${type} == "Darwin" ]; then
         install_vimplus_on_mac
     elif [ ${type} == "Linux" ]; then
         install_vimplus_on_linux
